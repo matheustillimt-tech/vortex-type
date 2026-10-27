@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), Inter, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* Cores do painel. Destaque e botão principal mudam por cópia (Configurações → Marca),
+   * via variáveis no <html> (`variaveisDaCor`). */
+
+  /* Superfícies */
+  --color-vt-bg: #080a09;
+  --color-vt-side: #0d120f;
+  --color-vt-panel: #1b221e; /* meio do degradê do cartão, menus e janelas, hover */
+  --color-vt-panel-2: #242e28; /* item ativo, hover de linha */
+  --color-vt-panel-3: #101813; /* início do degradê, fundo de campo */
+  --color-vt-pilula: #15211a;
+
+  /* Bordas */
+  --color-vt-line: rgb(255 255 255 / 0.13);
+  --color-vt-line-2: rgb(255 255 255 / 0.26);
+
+  /* Texto */
+  --color-vt-text: #f6f7f6;
+  --color-vt-text-2: #b4bdb7;
+  --color-vt-muted: #929f96;
+  --color-vt-text-3: #76877c;
+  --color-vt-rotulo: #76877c;
+
+  /* Destaque (verde) */
+  --color-vt-accent: #0fa968;
+  --color-vt-accent-2: #0fa968;
+  --color-vt-accent-3: #8de7bb; /* texto em destaque, hover de link */
+  /* Botão principal: verde mais fechado pra o texto branco ler bem */
+  --color-vt-primario: #13794f;
+  --color-vt-primario-hover: #158359;
+
+  /* Estados */
+  --color-vt-ok: #65dfab;
+  --color-vt-aviso: #f1ce87;
+  --color-vt-erro: #f26d68;
+
+  /* Link do cartão de ação */
+  --color-vt-link: #8de7bb;
+
+  /* Caixa de destaque (aviso informativo) */
+  --color-vt-destaque: #0c1a13;
+  --color-vt-destaque-2: #0c1a13;
+  --color-vt-destaque-borda: rgb(116 216 168 / 0.33);
+}
+
+html { color-scheme: dark; }
+html, body { background: var(--color-vt-bg); color: var(--color-vt-text); }
+/* Brilho verde de fundo */
+body { background-image: radial-gradient(48% 52% at 94% 32%, rgb(15 169 104 / 0.08), transparent 75%), radial-gradient(42% 30% at 22% 86%, rgb(15 169 104 / 0.04), transparent 75%); background-attachment: fixed; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--color-vt-accent); }
+/* Lista aberta do <select>: no Chrome do Windows ela vem com fundo branco e herda o texto claro
+ * do campo (branco no branco). Fundo e cor explícitos nas opções resolvem em todo o painel. */
+select { color-scheme: dark; }
+select option, select optgroup { background-color: var(--color-vt-panel); color: var(--color-vt-text); }
+::selection { background: rgb(15 169 104 / 0.3); }
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  overflow: hidden;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* Falas do banner do login entrando uma por vez. */
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.surgir { animation: surgir 0.5s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .surgir { animation: none; } }

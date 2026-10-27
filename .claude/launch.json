@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "vortex-type", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000 },
+    { "name": "call-falso", "runtimeExecutable": "node", "runtimeArgs": ["scripts/call-falso.mjs"], "port": 3999 }
+  ]
+}
